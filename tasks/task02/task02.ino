@@ -19,11 +19,25 @@ void setup() {
     pinMode(pins[i], OUTPUT);
   }
 
-  for (int i = 0; i < 5; i++) {
-    taskid_t taskId = taskManager.scheduleFixedRate(times[i], [i] {
-      toggleLamp(i);
-    }, TIME_MICROS);
-  }
+  taskid_t taskId0 = taskManager.scheduleFixedRate(times[0], [] {
+    toggleLamp(0);
+  }, TIME_MICROS);
+
+  taskid_t taskId1 = taskManager.scheduleFixedRate(times[1], [] {
+    toggleLamp(1);
+  }, TIME_MICROS);
+
+  taskid_t taskId2 = taskManager.scheduleFixedRate(times[2], [] {
+    toggleLamp(2);
+  }, TIME_MICROS);
+
+  taskid_t taskId3 = taskManager.scheduleFixedRate(times[3], [] {
+    toggleLamp(3);
+  }, TIME_MICROS);
+
+  taskid_t taskId4 = taskManager.scheduleFixedRate(times[4], [] {
+    toggleLamp(4);
+  }, TIME_MICROS);
 }
 
 void loop() {
